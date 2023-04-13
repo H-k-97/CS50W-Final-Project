@@ -1,0 +1,50 @@
+{% extends "hospital/layout.html" %}
+{% load static %}
+
+{% block body %}
+<br>
+
+
+<!-- Patients List -->
+
+<div class="wrapper">
+    <center>
+        <h1>Patients List</h1>
+        <div class="serach w-50">
+          <div class="input-group mb-3">
+            <input id="serach" type="text" class="form-control" placeholder="Serach " aria-label="Serach" aria-describedby="basic-addon2">
+            <div class="input-group-append">
+              <button id="serbtn" class="btn btn-outline-success" type="button">Serach</button>
+            </div>
+          </div>
+        </div>
+    </center>
+    <div class="main-table">
+
+    </div>
+  
+      
+   
+
+
+
+
+</div>
+
+  <div class="section p-5 ">
+
+ 
+ 
+
+
+  </div>
+
+
+<!-- end Patients List -->
+
+{% endblock %}
+
+{% block script %}
+<script src="{% static 'hospital/index.js' %}"></script>
+
+{% endblock %}

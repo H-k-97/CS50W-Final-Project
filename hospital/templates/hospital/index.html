@@ -1,0 +1,190 @@
+{% extends "hospital/layout.html" %}
+{% load static %}
+
+{% block body %}
+
+ <!--- Showcase -->
+ <section class="bg-dark text-light p-5 text-center text-sm-start">
+    <div class="container">
+        <div class="d-sm-flex align-items-center justify-content-between">
+            <div >
+                <h1>Patients Medical <span class="text-warning">History</span> </h1>
+                <p class="lead my-4 mx-4">
+                    A record of information about a person's health. A personal medical history may include information about allergies, illnesses, surgeries, immunizations, and results of physical exams and tests. It may also include information about medicines taken and health habits, such as diet and exercise.
+
+                    </p>
+                    <a href="{% url 'patients' %}"><buttons class="btn btn-success btn-lg">
+                        Start Now
+                    </buttons></a>
+            </div>
+            <img class="img-fluid ms-auto d-none d-sm-block" width="250" height="250" src="{% static 'hospital/plt.png' %}" alt="" />
+        </div>
+
+        
+    </div>
+</section>
+<!--- End Showcase -->
+<!-- boxes -->
+<section class=" p-5">
+<div class="container">
+
+    <div class="row text-center g-4">
+        <div class="col-md">
+            <div class="card bg-dark text-light">
+                <div class="card-body text-center">
+                    <div class="h3 mb-3">
+                        <i class="bi bi-clipboard2-pulse"></i>
+                    </div>
+                   <h4 class="card-title">
+                    Avoid Mistakes
+                   </h4>
+                   <p class="card-text">
+                    It is important to remember that a medication error can result in patient morbidity and even mortality. So using medical history will avoid mistakes and reduce the risk of adverse effects.
+                </div>
+            </div>
+        </div>
+        <div class="col-md">
+            <div class="card bg-dark text-light">
+                <div class="card-body text-center">
+                    <div class="h3 mb-3">
+                        <i class="bi bi-heart-pulse-fill"></i>
+                    </div>
+                   <h4 class="card-title">
+                    Accuracy
+                   </h4>
+                   <p class="card-text">
+                    Because of their detailed information, most records can help pinpoint where mistakes occurred. In effect, they can help provide patients with better care. After using medical history.
+                </div>
+            </div>
+        </div>
+        <div class="col-md">
+            <div class="card bg-dark text-light">
+                <div class="card-body text-center">
+                    <div class="h3 mb-3">
+                        <i class="bi bi-patch-check-fill"></i>
+                    </div>
+                   <h4 class="card-title">
+                    Easy Diagnosis
+                   </h4>
+                   <p class="card-text">
+                    Medical history can help doctors diagnose and treat patients. It can also help prevent problems in the future and help prevent unnecessary medical expenses and costs for patients.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+</section>
+<!-- End boxes -->
+<!-- Report  -->
+<section class="p-5">
+    <div class="container">
+
+        <div class="row align-items-center justify-content-between">
+            <div class="col-md">
+                <img src="{% static 'hospital/504018.png' %}" alt="" class="img-fluid w-50">
+            </div>
+            <div class="col-md p-5">
+            <h2> Patients History System
+            </h2>
+            <p class="lead">
+                Doctors can add patients medical history to the system.
+            </p>
+            <p>
+                The system is designed to help doctors to keep track of the patients medical history and to help them to make the best decision to treat the patient.
+
+            </p>
+        </div>
+        </div>
+
+    </div>
+</section>
+
+<section class="p-5 bg-dark text-light">
+    <div class="container">
+
+        <div class="row align-items-center justify-content-between">
+          
+            <div class="col-md p-5">
+            <h2>Patients QR Codes</h2>
+            <p class="lead">
+                QR codes are used to help doctors to find the patients medical history.
+            </p>
+            <p>
+                Patients Can save their QR codes and use them to find their medical history.
+
+            </p>
+        </div>
+        <div class="col-md">
+            <img src="{% static 'hospital/QR.png' %}" alt="" class="img-fluid w-50">
+        </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- End Report -->
+
+
+<!-- FAQ -->
+
+<section class="p-5">
+
+<div class="container">
+
+    <h2 class="text-center mb-4">
+        Frequently Asked Questions
+    </h2>
+    <div class="accordion accordion-flush" id="accordionFlushExample">
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="flush-headingOne">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+              How can i add my patients medical history?
+            </button>
+          </h2>
+          <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+            <div class="accordion-body">
+                <p>
+                    You can add your patients medical history by clicking on the add button in the top right corner when you login
+                </p>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="flush-headingTwo">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+              How to login?
+            </button>
+          </h2>
+          <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+            <div class="accordion-body">
+                <p>
+                    You can login by clicking on the login button in the top right corner if you are not registered yet you can click on the register button to register.
+                </p>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="flush-headingThree">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+              Who Can Access The System?
+            </button>
+          </h2>
+          <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
+            <div class="accordion-body">
+                <p>
+                    The system is open to all users who are registered in the system.
+                </p>
+            </div>
+          </div>
+        </div>
+      </div>
+</div>
+
+</section>
+
+<!-- End Q -->
+
+
+{% endblock %}

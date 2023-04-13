@@ -1,0 +1,113 @@
+{% extends "hospital/layout.html" %}
+{% load static %}
+
+{% block body %}
+
+<!-- add Patient -->
+<section class="p-5">
+
+    <div class="container ">
+        <div class="row">
+            <div class="col-md-12">
+                <h2>Add Patient</h2>
+            </div>
+
+            {% if message %}
+            <br>
+                 <div class="alert alert-danger" role="alert">
+                     {{ message }}
+                 </div>
+             
+         {% endif %}
+            <form action="" method="post" enctype="multipart/form-data">
+              {% csrf_token %}
+            <div class="input-group">
+                <span class="input-group-text">First and last name</span>
+                <input type="text" name="fname" placeholder="First Name" aria-label="First name" class="form-control">
+                <input type="text" name="lname" placeholder="Last Name" aria-label="Last name" class="form-control">
+              </div>
+              
+              <div class="input-group p-1  w-50">
+                <label class="input-group-text" for="inputGroupSelect01">Gender</label>
+                <select name="gender" class="form-select" id="inputGroupSelect01">
+                  <option selected>Gender</option>
+                  <option value="Male">Male</option>
+                  <option value="Female">Female</option>
+                  <option value="Other">Other</option>
+                </select>
+              </div>
+
+              <div class="input-group mb-3 w-50">
+                <span class="input-group-text">Birthday</span>
+                
+                <input type="date" id="birthday" name="birthday">
+
+              </div>
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">Email</span>
+                <input name="email" type="text" class="form-control" placeholder="Email" aria-label="Username" aria-describedby="basic-addon1">
+              </div>
+
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">Phone</span>
+                <input name="phone" type="text" class="form-control" placeholder="Phone" aria-label="Username" aria-describedby="basic-addon1">
+              </div>
+
+              <div class="input-group mb-3">
+                <input name="image" type="file" accept="image/*" class="form-control" id="inputGroupFile02">
+                <label class="input-group-text" for="inputGroupFile02">Image</label>
+              </div>
+
+              <div class="input-group p-1  w-50">
+                <label class="input-group-text" for="inputGroupSelect01">Blood Type</label>
+                <select name="blood" class="form-select" id="inputGroupSelect01">
+                  <option selected>Blood Type</option>
+                  <option value="A RhD positive (A+)">A RhD positive (A+)</option>
+                  <option value="A RhD negative (A-)">A RhD negative (A-)</option>
+                  <option value="B RhD positive (B+)">B RhD positive (B+)</option>
+                  <option value="B RhD negative (B-)">B RhD negative (B-)</option>
+                  <option value="AB RhD positive (AB+)">AB RhD positive (AB+)</option>
+                  <option value="AB RhD negative (AB-)">AB RhD negative (AB-)</option>
+                  <option value="O RhD positive (O+)">O RhD positive (O+)</option>
+                  <option value="O RhD negative (O-)">O RhD negative (O-)</option>
+
+                </select>
+              </div>
+
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">Country</span>
+                <input name="country" type="text" class="form-control" placeholder="Country" aria-label="Username" aria-describedby="basic-addon1">
+              </div>
+
+
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">Address</span>
+                <input name="address" type="text" class="form-control" placeholder="Address" aria-label="Username" aria-describedby="basic-addon1">
+              </div>
+
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">Occupation</span>
+                <input name="occ" type="text" class="form-control" placeholder="Occupation" aria-label="Username" aria-describedby="basic-addon1">
+              </div>
+
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">Next of kin</span>
+                <input name="nextofkin" type="text" class="form-control" placeholder="Next of Kin" aria-label="Username" aria-describedby="basic-addon1">
+              </div>
+
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">Next of kin Phone</span>
+                <input name="nextofkinp" type="text" class="form-control" placeholder="Next of Kin Phone" aria-label="Username" aria-describedby="basic-addon1">
+              </div>
+
+                <button type="submit" class="btn btn-success">Submit</button>
+            </form>
+    </div>
+
+    </section>
+
+
+
+
+<!-- end add Patient -->
+{% endblock %}

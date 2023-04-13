@@ -1,0 +1,59 @@
+{% extends "hospital/layout.html" %}
+{% load static %}
+
+{% block body %}
+<!-- Register -->
+
+<section class="p-5">
+    <br><br>
+    <!--  login  -->
+    <div class="container">
+        <div class="row">
+            <div class="col-md">
+                <img src="{% static 'hospital/mm.png' %}" alt="" class="img-fluid w-50">
+            </div>
+            <div class="col-md">
+                {% if message %}
+                        <br>
+                             <div class="alert alert-danger" role="alert">
+                                 {{ message }}
+                             </div>
+                         
+                     {% endif %}
+                <p class="text-center">
+                    <h2>Register</h2>
+                    <form action="{% url 'register' %}" method="post">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <label for="username">Username</label>
+                            <input type="text" class="form-control" id="username" name="username" placeholder="Enter username">
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" class="form-control" id="password" name="password" placeholder="Enter password">
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Confirmation</label>
+                            <input type="password" class="form-control" id="password" name="confirmation" placeholder="Re-Enter password">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" class="form-control" id="email" name="email" placeholder="Enter email">
+                        </div>
+                       
+                        <br>
+                        <button type="submit" class="btn btn-success">Register</button>
+                    </form>
+                    <p>Already Have an Account ? <a href="{% url 'login'%}">login</a> </p>
+                    </p>
+                    </div>
+                    </div>
+                    </div>
+                    </div>
+                    
+
+
+                    </section> 
+<!-- End register -->
+
+{% endblock %}

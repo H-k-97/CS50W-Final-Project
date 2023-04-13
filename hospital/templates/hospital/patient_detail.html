@@ -1,0 +1,208 @@
+{% extends "hospital/layout.html" %}
+{% load static %}
+
+{% block body %}
+<br>
+
+{% if message %}
+<br>
+     <div class="alert alert-danger" role="alert">
+         {{ message }}
+     </div>
+ 
+{% endif %}
+
+<div class="section p-5">
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Patient Detail : {{patient.name}}</h3>
+                    </div>
+                    <div class="card-body">
+                        
+                            <img style="border:ridge;" src="{{patient.image.url}}" height="150" width="150" alt="patient" class="img-fluid">
+                            <img style="float: right; border:ridge;" src="{{patient.qr_code}}" height="150" width="150" alt="patient" class="qr">
+                            <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Name</label>
+                                    <input type="text" class="form-control" value="{{patient.name}}" disabled>
+                                
+                                    <label>Birthday</label>
+                                    <input type="text" class="form-control" value="{{patient.age}}" disabled>
+                               
+                                    <label>Gender</label>
+                                    <input type="text" class="form-control" value="{{patient.gender}}" disabled>
+                               
+                                    <label>Phone</label>
+                                    <input type="text" class="form-control" value="{{patient.phone}}" disabled>
+                                
+                                    <label>Blood Group</label>
+                                    <input type="text" class="form-control" value="{{patient.blood_group}}" disabled>
+                                
+                                    <label>Address</label>
+                                    <input type="text" class="form-control" value=" {{patient.user_from}} : {{patient.address}}" disabled>
+                                
+                                    <label>Email</label>
+                                    <input type="text" class="form-control" value=" {{patient.email}} " disabled>
+                               
+                                    <label>Occupation</label>
+                                    <input type="text" class="form-control" value=" {{patient.job}} " disabled>
+                                
+                                    <label>Emergency Contact</label>
+                                    <label>Next of Kin</label>
+                                    <input type="text" class="form-control" value=" {{patient.next_of_kin}} " disabled>
+                                    <label>Next of Kin Phone</label>
+                                    <input type="text" class="form-control" value=" {{patient.next_of_kin_phone}} " disabled>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<div class="section ">
+    <!-- Add History -->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Add Medical History</h3>
+                    </div>
+                    <div class="card-body">
+                        <form action="{% url 'add_history' patient.id%}" method="POST">
+                            {% csrf_token %}
+                            <div class="form-group">
+                                <label>Diagnosis</label>
+                                <textarea class="form-control" name="diagnosis" rows="3"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label>Description</label>
+                                <textarea class="form-control" name="description" rows="3"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label>Treatment</label>
+                                <textarea class="form-control" name="treatment" rows="3"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label>Date</label>
+                                <input type="date" class="form-control" name="date">
+                            </div>
+                            <br>
+                            <button type="submit" class="btn btn-success">Add</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+    <!-- end Add History -->
+</div>
+
+<br>
+
+
+<div class="section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <center>
+                        <div class="card-header">
+                            <h3 class="card-title">Patient Histories</h3>
+                        </div>
+                    </center>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-striped table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            <center>
+                                                <h5>Date</h5>
+                                            </center>
+                                        </th>
+                                        <th>
+                                            <center>
+                                                <h5>Doctor</h5>
+                                            </center>
+                                        </th>
+                                        <th>
+                                            <center>
+                                                <h5>Description</h5>
+                                            </center>
+                                        </th>
+                                        <th>
+                                            <center>
+                                                <h5>Diagnosis</h5>
+                                            </center>
+                                        </th>
+                                        <th>
+                                            <center>
+                                                <h5>Treatment</h5>
+                                            </center>
+                                        </th>
+                                        <th>
+                                            <center>
+                                                <h5>Action</h5>
+                                            </center>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for history in histories %}
+                                    <tr>
+                                        <td>
+                                            <center>
+                                                <h6>{{history.date}}</h6>
+                                            </center>
+                                        </td>
+                                        <td>
+                                            <center>
+                                                <h6>{{history.user.username}}</h6>
+                                            </center>
+                                        </td>
+                                        <td>
+                                            <center>
+                                                <h6>{{history.description}}</h6>
+                                            </center>
+                                        </td>
+                                        <td>
+                                            <center>
+                                                <h6>{{history.diagnosis}}</h6>
+                                            </center>
+                                        </td>
+                                        <td>
+                                            <center>
+                                                <h6>{{history.treatment}}</h6>
+                                            </center>
+                                        </td>
+                                        <td>
+                                            <center>
+                                                
+                                                <a href="{% url 'delete_history' history.id %}" class="btn btn-danger btn-sm">Delete</a>
+                                            </center>
+                                        </td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+{% endblock %}

@@ -1,0 +1,52 @@
+{% extends "hospital/layout.html" %}
+{% load static %}
+
+{% block body %}
+
+<section class="p-5">
+    <br><br>
+    <!--  login  -->
+    <div class="container">
+        <div class="row">
+            <div class="col-md">
+                <img src="{% static 'hospital/login.png' %}" alt="" class="img-fluid w-50">
+            </div>
+            <div class="col-md">
+                {% if message %}
+                       <br>
+                            <div class="alert alert-danger" role="alert">
+                                {{ message }}
+                            </div>
+                        
+                    {% endif %}
+                <p class="text-center">
+                    <h2>Login</h2>
+                    <form action="{% url 'login' %}" method="post">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <label for="username">Username</label>
+                            <input type="text" class="form-control" id="username" name="username" placeholder="Enter username">
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" class="form-control" id="password" name="password" placeholder="Enter password">
+                        </div>
+                        <br>
+                        <button type="submit" class="btn btn-success">Login</button>
+                        <p>You don't Have an Account ? <a href="{% url 'register'%}">Register</a> </p>
+                    </form>
+                    
+                </p>
+            </div>
+        </div>
+
+
+
+
+    </div>
+
+</section>
+<br><br>
+    <!--  End login  -->
+
+{% endblock %}

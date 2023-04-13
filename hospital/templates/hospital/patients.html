@@ -1,0 +1,34 @@
+{% extends "hospital/layout.html" %}
+{% load static %}
+
+{% block body %}
+<br>
+<!-- Card  -->
+
+<div class="card text-center p-5">
+    <div class="card-header">
+      Add
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">Add New Patient</h5>
+      <p class="card-text"> Add new patient in the button below </p>
+      <a href="{% url 'add_patient' %}" class="btn btn-success">ADD</a>
+    </div>
+    
+  </div>
+  <br>
+  <div class="card text-center p-5">
+    <div class="card-header ">
+      Browse
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">Browse All and add Medical History</h5>
+      <p class="card-text">Browse All the patient and add in the button below </p>
+      <a href="{% url 'browse' %}" class="btn btn-success">Browse</a>
+    </div>
+   
+  </div>
+
+<!-- end Card  -->
+<br>
+{% endblock %}

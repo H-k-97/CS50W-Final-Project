@@ -1,0 +1,38 @@
+{% extends "hospital/layout.html" %}
+{% load static %}
+
+{% block body %}
+
+
+<br><br><br>
+<div class="section">
+<center>
+    <div class="container">
+        <h4>Serach Using QR Code </h4>
+        <h6>Upload QR Code Please</h6>
+        <form action="{% url 'readqr' %}" enctype="multipart/form-data" method="post">
+            {% csrf_token %}
+        <div class="input-group mb-3 w-50">
+            <input name="image" type="file" accept="image/*" class="form-control" id="inputGroupFile02">
+            
+            <div class="input-group-append">
+
+              <button id="serbtn" class="btn btn-outline-success" type="submit">Serach</button>
+            </div>
+
+        </div>
+        <h6>After Uploading QR Code You Will Be Redirect To Patient Page If existed</h6>
+        {% if message %}
+        <br>
+             
+              <h6 style="color: red;">{{ message }}</h6>   
+             
+         
+     {% endif %}
+    </form>
+    </center>
+</div>
+<br><br><br>
+
+
+{% endblock %}
